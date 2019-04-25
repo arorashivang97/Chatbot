@@ -13,7 +13,9 @@ node{
     }
     
     stage ('Test image'){
-        sh 'docker run arorashivang97/spe-project:app'
+        sh 'docker run -it arorashivang97/spe-project:app /bin/bash'
+        sh 'npm test'
+        sh 'mocha ./test/test.js --reporter spec --timeout 5000' 
     }
     
     /*stage ('Push image'){

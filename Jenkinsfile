@@ -11,9 +11,10 @@ node{
         //sh 'docker build -t arorashivang97/spe-project:app_mongo -f ./mongo/Dockerfile .'
 
     }
-    
-    stage ('Test image'){
+    stage ('Run image'){
         sh 'docker run arorashivang97/spe-project:app'
+    }
+    stage ('Test image'){
         sh 'npm test'
         sh 'mocha ./test/test.js --reporter spec --timeout 5000' 
     }

@@ -7,16 +7,18 @@ node{
     
     stage ('Build image'){
 
-        sh 'docker build -t arorashivang97/spe-project:app .'
+        sh 'docker build -t arorashivang97/spe-project:app_trial .'
         //sh 'docker build -t arorashivang97/spe-project:app_mongo -f ./mongo/Dockerfile .'
 
     }
     stage ('Run image'){
-        sh 'docker run arorashivang97/spe-project:app'
+        def app = docker.run('arorashivang97/spe-project:app_trial')
     }
     stage ('Test image'){
-        sh 'npm test'
-        sh 'mocha ./test/test.js --reporter spec --timeout 5000' 
+        app.inside{
+            sh 'npm test'
+            sh 'mocha ./test/test.js --reporter spec --timeout 5000'
+        } 
     }
     
     /*stage ('Push image'){

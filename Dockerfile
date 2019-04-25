@@ -33,5 +33,5 @@ RUN npm install
 EXPOSE 1337
 EXPOSE 4999
 
-#CMD ["node", "./app/index.js"]
+CMD ["npm", "test"]
 CMD ["npm", "start"]

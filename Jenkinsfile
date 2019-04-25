@@ -7,13 +7,13 @@ node{
     
     stage ('Build image'){
 
-        sh 'docker build -t arorashivang97/spe-project:app_trial .'
+        def app = docker.build(arorashivang97/spe-project:app_trial)
         //sh 'docker build -t arorashivang97/spe-project:app_mongo -f ./mongo/Dockerfile .'
 
     }
-    stage ('Run image'){
+    /*stage ('Run image'){
         def app = docker.run('arorashivang97/spe-project:app_trial')
-    }
+    }*/
     stage ('Test image'){
         app.inside{
             sh 'npm test'

@@ -1,13 +1,13 @@
 node{
 
-    
+    def app
     stage ('Clone repository'){
         git 'https://github.com/arorashivang97/Chatbot.git'
     }
     
     stage ('Build image'){
 
-        def app = docker.build(arorashivang97/spe-project:app_trial)
+        app = docker.build(arorashivang97/spe-project)
         //sh 'docker build -t arorashivang97/spe-project:app_mongo -f ./mongo/Dockerfile .'
 
     }

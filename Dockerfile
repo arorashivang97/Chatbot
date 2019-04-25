@@ -34,4 +34,3 @@ EXPOSE 1337
 EXPOSE 4999
 
 CMD ["npm", "test"]
-CMD ["node", "./app/index.js"]

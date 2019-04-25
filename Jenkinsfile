@@ -13,7 +13,7 @@ node{
     }
     
     stage ('Test image'){
-        sh 'docker run -it arorashivang97/spe-project:app /bin/bash'
+        sh 'docker run -t arorashivang97/spe-project:app /bin/bash'
         sh 'npm test'
         sh 'mocha ./test/test.js --reporter spec --timeout 5000' 
     }

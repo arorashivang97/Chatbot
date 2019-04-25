@@ -8,19 +8,15 @@ node{
     stage ('Build image'){
 
         sh 'docker build -t arorashivang97/spe-project:app .'
-        sh 'docker build -t arorashivang97/spe-project:app_mongo -f ./mongo/Dockerfile .'
+        //sh 'docker build -t arorashivang97/spe-project:app_mongo -f ./mongo/Dockerfile .'
 
-        // app = docker.build("arorashivang97/spe-project")
-        // app_mongo = docker.build("arorashivang97/spe-project")
     }
     
     stage ('Test image'){
-        // app.inside{
-        //     // sh 'npm test'
-        // }
+        sh 'docker run arorashivang97/spe-project:app'
     }
     
-    stage ('Push image'){
+    /*stage ('Push image'){
         withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) 
         {
             sh 'docker push arorashivang97/spe-project:app'
@@ -30,7 +26,7 @@ node{
     }
     stage ('Build Rundeck job'){
         build job: 'Bank2'
-    }
+    }*/
 
 }
 

@@ -24,13 +24,9 @@ COPY . ./
 #RUN npm install chai
 
 
-
 RUN npm install
-
-# runtime configs
-# ENTRYPOINT ["sh","./entrypoint.sh"]
 
 EXPOSE 1337
 EXPOSE 4999
 
-CMD ["npm", "test"]
+#CMD ["npm", "test"]

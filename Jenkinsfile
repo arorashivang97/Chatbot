@@ -2,7 +2,7 @@ node{
 
     
     stage ('Clone repository'){
-        git 'https://github.com/arorashivang97/DevOps_Project_Chatbot.git'
+        git 'https://github.com/arorashivang97/Chatbot.git/'
     }
     
     stage ('Build image'){
